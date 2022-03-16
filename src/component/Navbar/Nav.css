@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+ nav{
+     width: 100%;
+     background: #FFFFFF;
+     position: relative;
+     text-align: left;
+     padding: 25px 30px;
+}
+ .Nav-top{
+     display: flex;
+     width: 100%;
+     justify-content: space-between;
+     align-items: center;
+     padding-right: 100px;
+     padding-left: 15px;
+}
+ nav .icon img{
+     width: 135px;
+}
+ .Nav-bottom {
+     margin-top: 30px;
+}
+ .nav-cart-login{
+     display: flex;
+     align-items: center;
+}
+ .nav-cart-login div{
+     margin: 0px 2px;
+}
+ nav ol{
+     display: flex;
+     list-style: none;
+     margin: auto 0;
+}
+ nav ol li{
+     margin: 0 15px;
+     position: relative;
+}
+ .menu>li{
+     height: 30px;
+}
+ .menu_sub{
+     padding: 8px 0px;
+     width: 185px;
+     line-height: 29px;
+     top:100%;
+     display: block;
+     position: absolute;
+     left: 0px;
+     background: #ffffff;
+     border: 1px solid #ebebeb;
+     box-shadow: none;
+     z-index: 9;
+     display: none;
+}
+ .menu>li>a{
+     position: relative;
+     padding: 11px 0;
+}
+ .menu>li>a::after{
+     content: "";
+     position: absolute;
+     left: 0;
+     bottom: 0;
+     width: 100%;
+     height: 1px;
+     background:#242424;
+     z-index: 9;
+     display: none;
+}
+ .menu li:hover .menu_sub{
+     display: block ;
+}
+ol, ul{
+    padding-left: 0px !important;
+}
+ .menu>li:hover a::after{
+     display: block ;
+}
+ .menu_sub a:hover {
+     color: #ff6a28 !important;
+}
+ nav ol li a{
+     text-decoration: none;
+     text-transform: capitalize;
+     letter-spacing: 1px;
+     color: #242424;
+     font-family: Libre Franklin, Arial, Helvetica, sans-serif;
+     font-size: 13px;
+     font-weight: 500;
+     min-height: 40px;
+     border-radius: 3px;
+     -webkit-transition: all .4s;
+}
+ a{
+     text-decoration: none;
+     text-transform: capitalize;
+     letter-spacing: 1px;
+     color: #242424;
+     font-family: Libre Franklin, Arial, Helvetica, sans-serif;
+     font-size: 13px;
+     font-weight: 500;
+     border-radius: 3px;
+     -webkit-transition: all .4s;
+}
+ nav .search_box{
+     display: flex;
+     margin: auto 0;
+     height: 40px;
+     line-height: 35px;
+}
+ .nav_find{
+     width: 450px;
+     display: flex;
+     align-items: center;
+}
+ .nav_title{
+     border-bottom-left-radius: 25px;
+     border-top-left-radius: 25px;
+     border: 1px solid;
+     height: 47px;
+     padding: 14px;
+     width: 30%;
+     font-weight: 100;
+     border-color:#aea7a7;
+     text-align: center;
+     border-right: none;
+}
+ .fa-solid, .fas {
+     font-family: "Font Awesome 6 Free";
+     font-weight: 600;
+}
+ nav .search_box input{
+     border: none;
+     outline: none;
+     background: #fff;
+     height: 100%;
+     padding: 0 10px;
+     font-size: 20px;
+     width: 350px;
+}
+ nav .search_box span{
+     color: #0a5071;
+     font-size: 20px;
+     background: #fff;
+     height: 100%;
+     padding: 8px;
+     position: relative;
+     cursor: pointer;
+     z-index: 1;
+}
+a{
+    color: #000 !important;
+    text-decoration: none !important;
+}
+ nav .search_box span:hover{
+     color: #fff;
+}
+ nav .Nav_InputFind{
+     border: 1px solid;
+     padding-left: 18px;
+     padding-right: 15px;
+     width: 70%;
+     border-top-right-radius: 24px;
+     border-color: #a4a4a4;
+     border-bottom-right-radius: 24px;
+}
+ nav .bar{
+     position: relative;
+     margin: auto;
+     display: none;
+}
+ nav .bar span{
+     position: absolute;
+     color: #1e1e27;
+     font-size: 25px;
+}
+
+ .cart{
+     position: relative;
+     display: flex;
+     align-items:center;
+     justify-content: center;
+     width: 50px;
+     height: 50px;
+     border: none;
+     outline: hidden;
+}
+ .cart span{
+     position: absolute;
+     top:0px;
+     right:0px;
+     background: red;
+     color: #fff;
+     padding: 0px 0.2rem;
+     border-radius: 25rem;
+     top: -5px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     right: -5px;
+     font-size: 11px;
+}
+ .Nav-bottom .mennu_mobile{
+     display: none;
+}
+#menu_moblie ,#nam,#nu{
+   display: none;
+}
+.icon-menusub  span{
+    display: none;
+}
+
+ @media screen and (max-width: 900px){
+     nav{
+         display: block;
+         padding: 0;
+    }
+     .Nav-top{
+         padding: 0px 12px;
+         display: block;
+    }
+     .nav_find{
+         width: 100%;
+    }
+     .nav-cart-login{
+         position: absolute;
+         top: 7px;
+         right: 18px;
+    }
+     .Nav_InputFind{
+         padding-left: 0px;
+         padding-right: 0px;
+    }
+     nav .icon img{
+         width: 130px;
+    }
+     nav .bar{
+         display: block;
+         position: absolute;
+         top: 15px;
+         left: 17px;
+         cursor: pointer;
+    }
+     .cart{
+         width: 30px;
+         height: 30px;
+         font-size: 12px;
+         display: -webkit-box;
+         display: -moz-box;
+         display: -ms-flexbox;
+         display: -webkit-flex;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         position: relative;
+         width: 40px;
+         height: 40px;
+         color: #1e1e27;
+         -webkit-transition: color 0.3s 
+    }
+     .fa-magnifying-glass{
+         font-weight: 550 !important;
+    }
+     nav .icon{
+         display: inline-block;
+         padding: 15px 55px;
+    }
+     nav .search_box{
+         width: 100%;
+         display: inline-flex;
+         justify-content: center;
+         margin-bottom: 15px;
+    }
+     nav .search_box input{
+         width: 90%;
+    }
+     nav ol{
+         display: block;
+    }
+     nav ol li a{
+         color: #000;
+         font-size: 28px;
+         padding: 25px;
+         display: block;
+    }
+     .Nav-bottom{
+         position: fixed;
+         width: 100%;
+         background: white;
+         left: -100%;
+         top: 0px;
+         margin-top: 0px;
+         height: 100vh;
+         padding: 20px;
+         z-index: 9;
+         transition: all .5s;
+    }
+     .Nav-bottom .mennu_mobile{
+         display: flex;
+         justify-content: space-between ;
+         padding-bottom: 20px;
+        /* border: 1px solid;
+         */
+         border-bottom: 1px solid;
+    }
+     .Nav-bottom .mennu_mobile .logo{
+         margin-top: 30px;
+    }
+     .Nav-bottom .mennu_mobile .logo img{
+         width: 150px;
+    }
+     .Nav-bottom .mennu_mobile .edit span{
+         color: #1e1e27;
+         font-size: 30px;
+    }
+     .menu{
+         line-height: 60px;
+         margin-top: 25px;
+         overflow: scroll;
+    }
+     .menu>li{
+         height: 100%;
+    }
+     .menu>li>a::after{
+         display: none;
+    }
+     .menu>li>a {
+         position: static;
+         padding:0;
+    }
+ .menu_sub{
+         width: 100%;
+         position: static;
+         border: 0;
+         padding: 3px 20px;
+         line-height: 56px; 
+       
+    }
+    
+.menu>li:hover a::after{
+         display: none ;
+    }
+nav ol li {
+         margin: 0px;
+         position: relative;
+    }
+ nav ol li a {
+         color: #000;
+         font-size: 20px;
+         padding: 0px;
+         display: block;
+    }
+.menu-doc{
+         overflow: auto;
+         height: 80vh;
+    }
+.menu_sub a:hover {
+      color: #000;
+ }
+ #menu_moblie:checked ~ nav .Nav-bottom{
+   left: 0;
+ }
+ .icon-menusub{
+     position: relative;
+ }
+ .icon-menusub span{
+     position: absolute;
+     top:22px;
+     right: -50px;
+
+ }
+ .menu li:hover .menu_sub{
+    display: none ;
+}
+ 
+ a .icon-menusub #tru{
+     display: none;
+ }
+ #nam:checked ~  a .icon-menusub #cong{
+     display: none;
+ }
+ #nam:checked ~  a .icon-menusub #tru{
+    display: block;
+}
+#nam:checked ~ .menu_sub{
+    display: block;
+
+}
+#nu:checked ~  a .icon-menusub #cong{
+    display: none;
+}
+#nu:checked ~  a .icon-menusub #tru{
+   display: block;
+}
+#nam:checked ~ .menu_sub{
+   display: block;
+
+}
+
+#nu:checked ~ .menu_sub{
+    display: block;
+
+}
+.icon-menusub  span{
+    display: block;
+}
+
+
+}
+@media  screen and (max-width: 300px){
+  
+nav .icon {
+      display: inline-block;
+      padding: 17px 38px;
+  }
+nav .icon img {
+   width: 84px;
+}
+nav .bar span{
+   font-size: 22px;
+}
+.fa-magnifying-glass{  
+   font-size: 10px;
+}
+}

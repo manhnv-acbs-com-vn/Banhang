@@ -1,0 +1,26 @@
+
+.slider{
+    height: 500px;
+}
+.carousel{
+    height: 100%;
+}.carousel-inner{
+    height: 100%;
+}
+.carousel-item{
+    height: 100%;
+} 
+@media screen and (max-width: 900px){
+
+    .slider{
+        height: 300px;
+    }
+
+}
+@media screen and (max-width: 720px){
+
+    .slider{
+        height: 200px;
+    }
+
+}
