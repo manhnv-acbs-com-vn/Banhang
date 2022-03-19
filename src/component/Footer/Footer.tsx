@@ -5,7 +5,7 @@ function Footer() {
                   <div className="footer__addr">
                         <h1 className="footer__logo">Something</h1>
                             
-                        <h2>Contact</h2>
+                        <h2>Liên Hệ</h2>
 
                         <address>
                               5534 Somewhere In. The World 22193-10212<br />
