@@ -1,4 +1,4 @@
-  import "./Women.css";
+  import "./Quannu.css";
   import { mau } from "../../data/data";
   import React, { useState, useEffect, useCallback } from 'react';
   import Product from '../../component/Product/Product';
@@ -7,7 +7,7 @@
   import { size } from "../../data/data";
   import ReactPaginate from "react-paginate";
 
-  function Women() {
+  function Quannu() {
     const [checked, setChecked] = useState<string[]>([])
     const [checkedID, setCheckedID] = useState<string[]>([])
     const [spicy, setSpicy] = useState(false);
@@ -252,7 +252,7 @@
     );
   }
 
-  export default Women;
+  export default Quannu;
 
 
 

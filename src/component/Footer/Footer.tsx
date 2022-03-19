@@ -4,7 +4,7 @@ function Footer() {
             <footer className="footer">
                   <div className="footer__addr">
                         <h1 className="footer__logo">Something</h1>
-
+                            
                         <h2>Contact</h2>
 
                         <address>

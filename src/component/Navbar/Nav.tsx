@@ -28,39 +28,38 @@ const useStyles = makeStyles({
 
 
 function Nav() {
-	const [errorMessage, setErrorMessage] = useState<string | undefined>();
+	const [search, setSearch] = useState("");
 	const top100Films = [
-		{ label: 'The Shawshank Redemption', year: 1994 },
-		{ label: 'The Godfather', year: 1972 },
-		{ label: 'The Godfather: Part II', year: 1974 },
-		{ label: 'The Dark Knight', year: 2008 },
-		{ label: '12 Angry Men', year: 1957 },
-		{ label: "Schindler's List", year: 1993 },
-		{ label: 'Pulp Fiction', year: 1994 },
-		{
-			label: 'The Lord of the Rings: The Return of the King',
-			year: 2003,
+		{ label: 'The Shawshank Redemption'},
+		{ label: 'The Godfather' },
+		{ label: 'The Godfather: Part II' },
+		{ label: 'The Dark Knight'},
+		{ label: '12 Angry Men' },
+		{ label: "Schindler's List" },
+		{ label: 'Pulp Fiction' },
+		{ label: 'The Lord of the Rings: The Return of the King',
+			
 		},
-		{ label: 'The Good, the Bad and the Ugly', year: 1966 },
-		{ label: 'Fight Club', year: 1999 },
+		{ label: 'The Good, the Bad and the Ugly' },
+		{ label: 'Fight Club' },
 		{
 			label: 'The Lord of the Rings: The Fellowship of the Ring',
-			year: 2001,
+		
 		},
 		{
 			label: 'Star Wars: Episode V - The Empire Strikes Back',
-			year: 1980,
+		
 		},
-		{ label: 'Forrest Gump', year: 1994 },
-		{ label: 'Inception', year: 2010 },
+		{ label: 'Forrest Gump'},
+		{ label: 'Inception' },
 		{
 			label: 'The Lord of the Rings: The Two Towers',
-			year: 2002,
+		
 		},
-		{ label: "One Flew Over the Cuckoo's Nest", year: 1975 },
-		{ label: 'Goodfellas', year: 1990 },
-		{ label: 'The Matrix', year: 1999 },
-		{ label: 'Seven Samurai', year: 1954 },
+		{ label: "One Flew Over the Cuckoo's Nest"},
+		{ label: 'Goodfellas' },
+		{ label: 'The Matrix'},
+		{ label: 'Seven Samurai' },
 		{
 			label: 'Star Wars: Episode IV - A New Hope',
 			year: 1977,
@@ -158,6 +157,7 @@ function Nav() {
 
 	];
 	const classes = useStyles();
+    console.log(search)
 	return (
 		<div>
 			<input type="checkbox" id="menu_moblie"/>
@@ -180,7 +180,11 @@ function Nav() {
 								options={top100Films}
 								sx={{ width: "100%" }}
 								noOptionsText={'Không có kết quả phù hợp'}
-								renderInput={(params) => (
+								onChange={(event: any, value: any) => {
+									setSearch(value)
+									  
+								  }} 
+ 								renderInput={(params) => (
 									<TextField
 										{...params} InputProps={{ ...params.InputProps, disableUnderline: true }} placeholder={"Nhập Tên Sản Phẩm... "} variant="standard" />
 								)}
@@ -219,7 +223,7 @@ function Nav() {
 				   </div>
 					<div className="menu-doc">
 					<ol className="menu">
-						<li><Link to="/trangchu">Trang Chủ </Link></li>
+						<li><Link to="/">Trang Chủ </Link></li>
 						<li><Link to="/gioithieu">Giới Thiệu</Link></li>
 						<li>
 						<input type="checkbox" name="" id="nam"/>	
@@ -247,13 +251,13 @@ function Nav() {
 					     </label>
 						 </a>
 							<ol className="menu_sub">
-								<li><a href="#">Giày Nữ </a></li>
-								<li><a href="#">Áo Nữ </a></li>
-								<li><a href="#">Quần Nữ</a></li>
+							<li><Link to="/women/giaynu"> Giày Nữ </Link></li>	
+							<li><Link to="/women/quannu"> Quần Nữ</Link></li>
+								
 								<li> <a href="#">Quần Thể Thao Nữ </a> </li>
 							</ol>
 						</li>
-						<li><Link to="/lienhe">Trang Chủ </Link></li>
+					
 					</ol>	
 					</div>
 				</div>
