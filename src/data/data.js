@@ -113,24 +113,29 @@ export const sliderItems = [
     },
     
    
+
+
+
+
+
   ];
 
   export const ao = [
     {
-      id: "1",
+      id: "12",
       img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "Áo Tay Dài 1",
+      title: "Áo Tay Dài 12",
       khuyenmai:"20",
       tien:120000,
       color:"xanh dương",
       giam:200000,
       theloai:"men",
-      size:"X",
+      size:"X"
     },
     {
-      id: "2",
+      id: "333",
       img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "Áo Tay Dài Màu Xanh 2",
+      title: "Áo Tay Dài Màu Xanh 33",
       khuyenmai:"30",
       tien:170000,
       color:"Đỏ",
@@ -139,9 +144,9 @@ export const sliderItems = [
       size:"X"
     },
     {
-      id: "3",
+      id: "35",
       img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-      title: "Áo Tay Dài Màu Đỏ 3",
+      title: "Áo Tay Dài Màu Đỏ 35",
       color:"nâu",
       tien:120000,
       giam:200000,
@@ -157,28 +162,28 @@ export const sliderItems = [
       color:"Đỏ",
       tien:130000,
       khuyenmai:"20",
-      size:"X",
+      size:"M",
       giam:22000,
      theloai:"women",
     
     },
     {
-      id: "5",
+      id: "55",
       img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-      title: "Áo Tay Dài Màu Đỏ 5",
+      title: "Áo Tay Dài Màu Đỏ 55",
       giam:22000,
-      khuyenmai:"20",
+      khuyenmai:"do",
       tien:100000,
       color:"vàng",
      theloai:"men",
-     size:"X",
+     size:"M",
     
 
     },
     {
-      id: "6",
+      id: "66",
       img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-      title: "Áo Tay Dài Màu Đỏ 6",
+      title: "Áo Tay Dài Màu Đỏ 66",
       khuyenmai:"10",
       tien:10000,
       giam:200000,
@@ -199,7 +204,7 @@ export const sliderItems = [
     
     },
     {
-      id: "8",
+      id: "833",
       img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
       title: "Áo Tay Dài Màu Đỏ 8",
       khuyenmai:"10",
@@ -209,9 +214,65 @@ export const sliderItems = [
       color:"xanh dương",
       size:"NM"
     
-    },
+    },{
+      id: "96",
+      img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      title: "Áo Tay Dài 9",
+      khuyenmai:"20",
+      tien:120000,
+      color:"xanh dương",
+      giam:200000,
+      theloai:"men",
+      size:"X"
+    },  {
+      id: "188",
+      img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      title: "Áo Tay Dài Màu Đỏ 10",
+      giam:22000,
+      khuyenmai:"200",
+      tien:100000,
+      color:"vàng",
+     theloai:"men",
+     size:"M",
     
-   
+
+    } ,{
+      id: "8898",
+      img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      title: "Áo Tay Dài Màu Đỏ 888",
+      khuyenmai:"10",
+      tien:10000,
+      giam:22000,
+      theloai:"men",
+      color:"xanh dương",
+      size:"NM"
+    
+    },{
+      id: "99",
+      img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      title: "Áo Tay Dài 99",
+      khuyenmai:"20",
+      tien:120000,
+      color:"xanh dương",
+      giam:200000,
+      theloai:"men",
+      size:"X"
+    },  {
+      id: "100",
+      img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      title: "Áo Tay Dài Màu Đỏ 100",
+      giam:22000,
+      khuyenmai:"200",
+      tien:100000,
+      color:"vàng",
+     theloai:"men",
+     size:"M",
+    
+
+    }
+  
+  
+  
   ];
 
 

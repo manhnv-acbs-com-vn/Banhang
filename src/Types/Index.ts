@@ -14,6 +14,18 @@ export interface ProductType{
     witbh?:string;
 
 } 
+export interface ProductListType{
+    
+    id: string; 
+    img: string; 
+    title: string; 
+    khuyenmai: string; 
+    tien: number; 
+    color: string; 
+    giam: number; 
+    theloai: string; 
+    size: string;
+} []
 
 export interface aoType{
     id: string;

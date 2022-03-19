@@ -1,225 +1,258 @@
-import "./Men.css";
-import { mau } from "../../data/data";
-import React, { useState, useEffect } from 'react';
-import Product from './../../component/Product/Product';
+  import "./Men.css";
+  import { mau } from "../../data/data";
+  import React, { useState, useEffect, useCallback } from 'react';
+  import Product from './../../component/Product/Product';
+  import { ProductListType } from '../../Types/Index';
+  import { ao } from "../../data/data";
+  import { size } from "../../data/data";
+  import ReactPaginate from "react-paginate";
 
-import { ProductType } from '../../Types/Index';
+  function Men() {
+    const [checked, setChecked] = useState<string[]>([])
+    const [checkedID, setCheckedID] = useState<string[]>([])
+    const [spicy, setSpicy] = useState(false);
+    const [list, setList] = useState(ao);
+    const [listProduct, SetListProduct] = useState<ProductListType[]>([])
+    const listp: ProductListType[] = []
+    // ReactPaginate list 
+    const [pageNumber, setPageNumber] = useState(0);
+    const [pageNumbers, setPageNumbers] = useState(0);
 
-import { ao } from "../../data/data";
-import { size } from "../../data/data";
-import { color } from "@mui/system";
+    const usersPerPage = 8;
+    const pagesVisited = pageNumber * usersPerPage;
+
+    const displayUsers = list.slice(pagesVisited, pagesVisited + usersPerPage).map((item) => {
+      return (
+        <Product
+          img={item.img}
+          title={item.title}
+          tien={item.tien}
+          khuyenmai={item.khuyenmai}
+          giam={item.giam}
+        />
+      );
+    });
+    const pageCount = Math.ceil(list.length / usersPerPage);
+    const pageCounts = Math.ceil(listProduct.length / usersPerPage);
+
+    const changePage = ({ selected }: any) => {
+      setPageNumber(selected);
+    };
+    // ------------------------
 
 
+    const displayUserss = listProduct.slice(pagesVisited, pagesVisited + usersPerPage).map((item) => {
+      return (
+        <Product
+          img={item.img}
+          title={item.title}
+          tien={item.tien}
+          khuyenmai={item.khuyenmai}
+          giam={item.giam}
+        />
+      );
+    });
 
+    const changePages = ({ selected }: any) => {
+      setPageNumber(selected);
+    };
 
+    const checkboxAll = (e: any) => {
+      let checdedall = e.target.checked
+      if (!!checdedall) {
+        setSpicy(true)
 
-
-function Men() {
-  const [checked, setChecked] = useState<string[]>([])
-  const [spicy,setSpicy] = useState(false);
-  const [list,setList] = useState(ao);
-  const [click,setclick] = useState(false);
-  const [IDcolor, setIDColor] = useState<string[]>([])
-  const [IDsize, setIDSize] = useState<string[]>([])
-
- 
-  console.log(IDsize)
-
-  
-  const [manh,setManh] = useState({
-     color:["color"],
-     size:["size"]
-     
-
-  })
-
- 
-  
-  console.log(click)
- 
-  const checkboxAll = (e :any) =>{
-  let  checdedall = e.target.checked
-  console.log(checked)
-  if(!!checdedall){
-   
-      setSpicy(false)
-  }
-  else{
-     setSpicy(true)
-  }
-      
-  }
-  
-console.log(checked)
-  const  checkboxColor = (e: any) => {
-    setChecked(pre =>  {
-      const ischeck = checked.includes(e)
-      if (!ischeck) {  
-     
-        return [...pre, e]
-      } else {
-       
-        return  checked.filter(item => item !== e)
       }
-        
-    })
+    }
 
-  }
-  const  checkboxsize = (e: any) => {
-    setChecked(pre =>  {
-      const ischeck = checked.includes(e)
-      if (!ischeck) {  
-     
-        return [...pre, e]
+    console.log(checked)
+    const checkboxColor = (e: any) => {
+      setChecked(pre => {
+        const ischeck = checked.includes(e)
+        if (!ischeck) {
+
+          return [...pre, e]
+        } else {
+
+          return checked.filter(item => item !== e)
+        }
+
+      })
+
+    }
+    const checkboxsize = (e: any) => {
+      setCheckedID(pre => {
+        const ischeck = checkedID.includes(e)
+        if (!ischeck) {
+
+          return [...pre, e]
+        } else {
+          list.map(item => item)
+          return checkedID.filter(item => item !== e)
+        }
+
+      })
+    }
+
+    useEffect(() => {
+      if ((checked.length > 0) || (checkedID.length > 0)) {
+        setSpicy(false)
+        list.forEach(item => {
+          if ((checked.includes(item.color)) || (checkedID.includes(item.size))) {
+            if ((checked.includes(item.color)) && (checkedID.includes(item.size))) {
+              const temp = list.filter(a => item.id.includes(a.id))
+              console.log(temp)
+              temp.map(item => listp.push(item))
+            } else {
+              const temp = ao.filter(a => item.id.includes(a.id))
+              temp.map(item => listp.push(item))
+            }
+
+          }
+
+        });
+        SetListProduct(listp)
+        console.log(listProduct)
       } else {
-       list.map(item => item)
-        return  checked.filter(item => item !== e)
+        setSpicy(true)
       }
 
-    })
-
-
-  }
-     useEffect(() => {
-      list.map((item) =>checked.map(check => check==item.size && setIDSize(e =>[...e,item.id])))
-      list.map((item) =>checked.map(check => check==item.color && setIDSize(e =>[...e,item.id])))
-    
-    
-    },[checked]);
+    }, [checked, checkedID]);
 
 
 
- 
 
 
- 
+    return (
+      <div className="Frames">
+        <div className="link">
+          <div>
 
-  return (
-    <div className="Frames">
-      <div className="link">
-        <div>
-        
-          <div className="row">
-            <div className="left">
-              <div className="chon">
-                <p>Size</p>
+            <div className="row">
+              <div className="left">
+                <div className="group-checkbox">
+                  <div>
+                    <label className="checkbox" style={{ marginBottom: "11px" }}>
+                      <input
 
-              </div>
-              <div className="group-checkbox">
-                <div>
-
-                  <label className="checkbox">
-                    <input  
-              
-                      type="checkbox" onChange={(e) => checkboxAll(e)} />
-                    <span>ALL</span>
-                  </label>
-
+                        type="checkbox" onChange={(e) => checkboxAll(e)} />
+                      <span>ALL</span>
+                    </label>
+                  </div>
                 </div>
 
-                {size.map((item) => (
-                  <div>
-
-                    <label className="checkbox">
-                      <input type="checkbox"
-                        checked={checked.includes(item.size)}
-                        onChange={() => checkboxsize(item.size)}
-                        value={item.size}
-                      />
-                      <span>{item.size}</span>
-                    </label>
-
-                  </div>
+                <div className="chon">
 
 
-                ))}
-
-
-              </div>
-              <div className="chon">
-                <p>Color</p>
-
-              </div>
-              <div className="group-checkbox">
-                <div>
-
-                  <label className="checkbox">
-                    <input  
-              
-                      type="checkbox" onChange={(e) => checkboxAll(e)} />
-                    <span>ALL</span>
-                  </label>
+                  <p>Size</p>
 
                 </div>
-
-                {mau.map((item) => (
-                  <div>
-
-                    <label className="checkbox">
-                      <input type="checkbox"
-                        checked={checked.includes(item.color)}
-                        onChange={() => checkboxColor(item.color)}
-                        value={item.color}
-                      />
-                      <span>{item.color}</span>
-                    </label>
-
-                  </div>
+                <div className="group-checkbox">
 
 
-                ))}
+                  {size.map((item) => (
+                    <div>
 
-
-              </div>
-            </div>
-            
-            <div className="right">
-                    <div className="row">
-                    { list.map((item) =>checked.map(check => ((check==item.size) || (check==item.color)) &&
-                      <Product
-                           img={item.img}
-                            title={item.title}
-                            tien={item.tien}
-                           khuyenmai={item.khuyenmai}
-                           giam={item.giam}
+                      <label className="checkbox">
+                        <input type="checkbox"
+                          checked={checkedID.includes(item.size)}
+                          onChange={() => checkboxsize(item.size)}
+                          value={item.size}
                         />
-                       
-                // :checked.map(check => (check==item.size) ?     
-                //     <Product
-                //     img={item.img}
-                //     title={item.title}
-                //     tien={item.tien}
-                //     khuyenmai={item.khuyenmai}
-                //     giam={item.giam}
-                //   /> :checked.map(check =>(check==item.color) ?
-                //    <Product
-                //   img={item.img}
-                //   title={item.title}
-                //   tien={item.tien}
-                //   khuyenmai={item.khuyenmai}
-                //   giam={item.giam}
-                // /> :null
-                //      ))
-                     ))
-                   } 
-              
-                    </div>
-             
+                        <span>{item.size}</span>
+                      </label>
 
+                    </div>
+
+
+                  ))}
+
+
+                </div>
+                <div className="chon">
+                  <p>Color</p>
+
+                </div>
+                <div className="group-checkbox">
+
+
+                  {mau.map((item) => (
+                    <div>
+
+                      <label className="checkbox">
+                        <input type="checkbox"
+                          checked={checked.includes(item.color)}
+                          onChange={() => checkboxColor(item.color)}
+                          value={item.color}
+                        />
+                        <span>{item.color}</span>
+                      </label>
+
+                    </div>
+
+
+                  ))}
+
+
+                </div>
+              </div>
+
+              <div className="right">
+                <div className="row">
+                  {spicy ?
+                    <div className="row">
+                      {displayUsers}
+                      <ReactPaginate
+                        previousLabel={"<<"}
+                        nextLabel={">>"}
+                        pageCount={pageCount}
+                        onPageChange={changePage}
+                        containerClassName={"paginationBttns"}
+                        previousLinkClassName={"previousBttn"}
+                        nextLinkClassName={"nextBttn"}
+                        disabledClassName={"paginationDisabled"}
+                        activeClassName={"paginationActive"}
+                      />
+                    </div>
+                    : <div className="row">
+                      {displayUserss}
+                      <ReactPaginate
+                        previousLabel={"<<"}
+                        nextLabel={">>"}
+                        pageCount={pageCounts}
+                        onPageChange={changePages}
+                        containerClassName={"paginationBttns"}
+                        previousLinkClassName={"previousBttn"}
+                        nextLinkClassName={"nextBttn"}
+                        disabledClassName={"paginationDisabled"}
+                        activeClassName={"paginationActive"}
+                      />
+                    </div>
+
+
+
+
+
+
+                  }
+
+                </div>
+
+
+
+              </div>
 
             </div>
 
           </div>
-
         </div>
+
+
       </div>
+    );
+  }
 
-
-    </div>
-  );
-}
-
-export default Men;  
+  export default Men;
 
 
 
