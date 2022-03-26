@@ -12,6 +12,10 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { makeStyles } from '@mui/styles';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+
+import { ao } from "../../data/data";
+import Search from '../../pages/Search/ Search';
 const useStyles = makeStyles({
 	root: {
 		"& .MuiAutocomplete-inputRoot": {
@@ -29,137 +33,25 @@ const useStyles = makeStyles({
 
 function Nav() {
 	const [search, setSearch] = useState("");
-	const top100Films = [
-		{ label: 'The Shawshank Redemption'},
-		{ label: 'The Godfather' },
-		{ label: 'The Godfather: Part II' },
-		{ label: 'The Dark Knight'},
-		{ label: '12 Angry Men' },
-		{ label: "Schindler's List" },
-		{ label: 'Pulp Fiction' },
-		{ label: 'The Lord of the Rings: The Return of the King',
-			
-		},
-		{ label: 'The Good, the Bad and the Ugly' },
-		{ label: 'Fight Club' },
-		{
-			label: 'The Lord of the Rings: The Fellowship of the Ring',
+	const [manh ,setManh] = useState("manh")
+let hitory = useNavigate()
+	const onChange = (e : any) =>{
 		
-		},
-		{
-			label: 'Star Wars: Episode V - The Empire Strikes Back',
-		
-		},
-		{ label: 'Forrest Gump'},
-		{ label: 'Inception' },
-		{
-			label: 'The Lord of the Rings: The Two Towers',
-		
-		},
-		{ label: "One Flew Over the Cuckoo's Nest"},
-		{ label: 'Goodfellas' },
-		{ label: 'The Matrix'},
-		{ label: 'Seven Samurai' },
-		{
-			label: 'Star Wars: Episode IV - A New Hope',
-			year: 1977,
-		},
-		{ label: 'City of God', year: 2002 },
-		{ label: 'Se7en', year: 1995 },
-		{ label: 'The Silence of the Lambs', year: 1991 },
-		{ label: "It's a Wonderful Life", year: 1946 },
-		{ label: 'Life Is Beautiful', year: 1997 },
-		{ label: 'The Usual Suspects', year: 1995 },
-		{ label: 'Léon: The Professional', year: 1994 },
-		{ label: 'Spirited Away', year: 2001 },
-		{ label: 'Saving Private Ryan', year: 1998 },
-		{ label: 'Once Upon a Time in the West', year: 1968 },
-		{ label: 'American History X', year: 1998 },
-		{ label: 'Interstellar', year: 2014 },
-		{ label: 'Casablanca', year: 1942 },
-		{ label: 'City Lights', year: 1931 },
-		{ label: 'Psycho', year: 1960 },
-		{ label: 'The Green Mile', year: 1999 },
-		{ label: 'The Intouchables', year: 2011 },
-		{ label: 'Modern Times', year: 1936 },
-		{ label: 'Raiders of the Lost Ark', year: 1981 },
-		{ label: 'Rear Window', year: 1954 },
-		{ label: 'The Pianist', year: 2002 },
-		{ label: 'The Departed', year: 1999 },
-		{ label: 'Terminator 2: Judgment Day', year: 2009 },
-		{ label: 'Back to the Future', year: 2006 },
-		{ label: 'Whiplash', year: 2099 },
-		{ label: 'Gladiator', year: 2006 },
-		{ label: 'Memento', year: 2006 },
-		{ label: 'The Prestige', year: 2006 },
-		{ label: 'The Lion King', year: 1999 },
-		{ label: 'Apocalypse Now', year: 1999 },
-		{ label: 'Alien', year: 1999 },
-		{ label: 'Sunset Boulevard', year: 1999 },
-		{
-			label: 'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb',
-			year: 1999,
-		},
-		{ label: 'The Great Dictator', year: 2000 },
-		{ label: 'Cinema Paradiso', year: 1999 },
-		{ label: 'The Lives of Others', year: 1999 },
-		{ label: 'Grave of the Fireflies', year: 1999 },
-		{ label: 'Paths of Glory', year: 2000 },
-		{ label: 'Django Unchained', year: 2000 },
-		{ label: 'The Shining', year: 2000 },
-		{ label: 'WALL·E', year: 2000 },
-		{ label: 'American Beauty', year: 2000 },
-		{ label: 'The Dark Knight Rises', year: 1999 },
-		{ label: 'Princess Mononoke', year: 2000 },
-		{ label: 'Aliens', year: 1999 },
-		{ label: 'Oldboy', year: 2000 },
-		{ label: 'Once Upon a Time in America', year: 1984 },
-		{ label: 'Witness for the Prosecution', year: 1957 },
-		{ label: 'Das Boot', year: 1981 },
-		{ label: 'Citizen Kane', year: 1941 },
-		{ label: 'North by Northwest', year: 1959 },
-		{ label: 'Vertigo', year: 1958 },
-		{
-			label: 'Star Wars: Episode VI - Return of the Jedi',
-			year: 1983,
-		},
-		{ label: 'Reservoir Dogs', year: 1992 },
-		{ label: 'Braveheart', year: 1995 },
-		{ label: 'M', year: 1931 },
-		{ label: 'Requiem for a Dream', year: 2000 },
-		{ label: 'Amélie', year: 2001 },
-		{ label: 'A Clockwork Orange', year: 1999 },
-		{ label: 'Like Stars on Earth', year: 2007 },
-		{ label: 'Taxi Driver', year: 1976 },
-		{ label: 'Lawrence of Arabia', year: 1962 },
-		{ label: 'Double Indemnity', year: 1944 },
-		{
-			label: 'Eternal Sunshine of the Spotless Mind',
-			year: 2004,
-		},
-		{ label: 'Amadeus', year: 1984 },
-		{ label: 'To Kill a Mockingbird', year: 1962 },
-		{ label: 'Toy Story 3', year: 2010 },
-		{ label: 'Logan', year: 2017 },
-		{ label: 'Full Metal Jacket', year: 1987 },
-		{ label: 'Dangal', year: 2016 },
-		{ label: 'The Sting', year: 1973 },
-		{ label: '2001: A Space Odyssey', year: 1968 },
-		{ label: "Singin' in the Rain", year: 1952 },
-		{ label: 'Toy Story', year: 1995 },
-		{ label: 'Bicycle Thieves', year: 1948 },
-		{ label: 'The Kid', year: 1921 },
-		{ label: 'Inglourious Basterds', year: 2009 },
-		{ label: 'Snatch', year: 2000 },
-		{ label: '3 Idiots', year: 2009 },
-		{ label: 'Monty Python and the Holy Grail', year: 1975 },
+		const {id, value} = e.target;
+		console.log(value.length)
+	    if(e.keyCode ==13){
+			if(value.length!==0){
+				hitory(`${search}`)
+	         setSearch(value)	     
+    		}
+			}
 
-
-	];
+   }
+   
 	const classes = useStyles();
-    console.log(search)
 	return (
-		<div>
+		
+			<div>
 			<input type="checkbox" id="menu_moblie"/>
 
 			<nav>
@@ -173,22 +65,8 @@ function Nav() {
 							<i style={{ fontWeight: "510" }} className="fa-solid fa-magnifying-glass"> <span>Search</span></i>
 						</div>
 						<div className="Nav_InputFind">
-							<Autocomplete
-								className={classes.root}
-								disablePortal
-								id="combo-box-demo"
-								options={top100Films}
-								sx={{ width: "100%" }}
-								noOptionsText={'Không có kết quả phù hợp'}
-								onChange={(event: any, value: any) => {
-									setSearch(value)
-									  
-								  }} 
- 								renderInput={(params) => (
-									<TextField
-										{...params} InputProps={{ ...params.InputProps, disableUnderline: true }} placeholder={"Nhập Tên Sản Phẩm... "} variant="standard" />
-								)}
-							/>
+						
+						 <input type="text" onKeyUp={onChange} /> 
 						</div>
 
 					</div>
@@ -265,7 +143,11 @@ function Nav() {
 
 
 			</nav>
+			  
+			     
 		</div>
+		
+
 	);
 }
 

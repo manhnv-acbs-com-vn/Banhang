@@ -11,8 +11,11 @@
     padding: 1rem 11px;
 
 }
+.product{
+    width: 25% !important;
+}
 .chon>p{
-    font-size: 20px;
+    font-size: 20spx;
 }
 .checkbox {
     display: inline-flex;
